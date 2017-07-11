@@ -207,6 +207,11 @@ class SermepaTokenized implements SermepaInterface {
   private $DsMerchantIdentifier;
 
   /**
+   * Optional: Flag to show additional screens
+   */
+  private $DsMerchantDirectPayment;
+
+  /**
    * Environment: live, test or an override url.
    */
   private $environment;
@@ -389,7 +394,8 @@ class SermepaTokenized implements SermepaInterface {
       'Ds_Merchant_TransactionType' => $this->DsMerchantTransactionType,
       'Ds_Merchant_UrlKO' => $this->DsMerchantUrlKO,
       'Ds_Merchant_UrlOK' => $this->DsMerchantUrlOK,
-      'Ds_Merchant_Identifier' => $this->DsMerchantIdentifier
+      'Ds_Merchant_Identifier' => $this->DsMerchantIdentifier,
+      'Ds_Merchant_DirectPayment' => $this->DsMerchantDirectPayment,
     );
 
     return array_filter($parameters);
@@ -1241,6 +1247,20 @@ class SermepaTokenized implements SermepaInterface {
     return $this->DsMerchantIdentifier;
   }
 
+  /**
+   *
+   */
+  public function setMerchantDirectPayment($merchant_directpayment) {
+      if (!is_bool($merchant_directpayment)) {
+          throw new SermepaException('The specified Ds_Merchant_DirectPayment: ' . $merchant_identifier . ' is not valid.', self::BAD_PARAM);
+      }
+
+      return $this->set('DsMerchantDirectPayment', $merchant_directpayment);
+  }
+
+  function getMerchantDirectPayment() {
+      return $this->DsMerchantDirectPayment;
+  }
   /**
    * {@inheritdoc}
    */
