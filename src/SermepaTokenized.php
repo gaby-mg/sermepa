@@ -395,7 +395,7 @@ class SermepaTokenized implements SermepaInterface {
       'Ds_Merchant_UrlKO' => $this->DsMerchantUrlKO,
       'Ds_Merchant_UrlOK' => $this->DsMerchantUrlOK,
       'Ds_Merchant_Identifier' => $this->DsMerchantIdentifier,
-      'Ds_Merchant_DirectPayment' => $this->DsMerchantDirectPayment,
+      //'Ds_Merchant_DirectPayment' => $this->DsMerchantDirectPayment,
     );
 
     return array_filter($parameters);
